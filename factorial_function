@@ -1,0 +1,6 @@
+def factorialize_this(input_integer):
+    if input_integer == 0:
+        return 1
+
+    else:
+        return input_integer * factorialize_this(input_integer - 1)
