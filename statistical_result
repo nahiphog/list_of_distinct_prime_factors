@@ -13,7 +13,7 @@ results_drawn = []
 # Change this value
 total_number_of_trials = 0 
 
-headers = ["Statistical measure", "Numerical output"]
+headers = ["Statistical measure", f"Numerical output for these {total_number_of_trials} trials"]
 
 final_report = [ 
 ["Mean", statistics.mean(results_drawn) ] , 
