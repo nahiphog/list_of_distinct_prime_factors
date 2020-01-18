@@ -8,26 +8,26 @@ import pylab as p  # for Kurtosis
 from tabulate import tabulate
 import matplotlib.pyplot as plt
 
+# Name of list for the record drawn from Monte Carlo simulation
 results_drawn = []
 
 # Change this value
 total_number_of_trials = 0 
 
-
 final_report = [ 
-["Mean", statistics.mean(results_drawn) ] , 
-[ "Median" , statistics.median(results_drawn) ] , 
-[ "Mode" , statistics.mode(results_drawn) ] , 
-[ "Variance" , np.var(results_drawn) ] , 
-[ "Skewness" , skew(results_drawn) ] , 
-[ "Kurtosis" , kurtosis(results_drawn)] ,
-[ f"{confidence * 100}%" + " Confidence Interval" , f"True mean will lie between {mean_confidence_interval(results_drawn, confidence) }" ] 
+["Mean",statistics.mean(results_drawn)],
+["Median",statistics.median(results_drawn)],
+["Mode",statistics.mode(results_drawn)], 
+["Variance",np.var(results_drawn)], 
+["Skewness",skew(results_drawn)], 
+["Kurtosis" , kurtosis(results_drawn)],
+[f"{confidence * 100}%"+" Confidence Interval",f"True mean will lie between {mean_confidence_interval(results_drawn, confidence) }"] 
 ]
 
+# Print the table of the statistical result
 headers = ["Statistical measure", "Numerical output"]
 print(f"\n\t\tMonte Carlo simulation for {total_number_of_trials} trials.\n" + tabulate(final_report,headers, tablefmt="psql"))
-
-
+# Accompany this table with a  histogram
 plt.hist(results_drawn, 300, histtype = 'bar', facecolor = 'green')
 plt.ylabel("Y-AXIS LABEL")
 plt.xlabel("X-AXIS LABEL")
