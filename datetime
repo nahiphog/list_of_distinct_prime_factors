@@ -1,0 +1,4 @@
+from datetime import datetime
+startTime = datetime.now()
+
+print(f"The total runtime of this script is {datetime.now() - startTime}.\n")
