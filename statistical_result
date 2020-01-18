@@ -13,7 +13,6 @@ results_drawn = []
 # Change this value
 total_number_of_trials = 0 
 
-headers = ["Statistical measure", f"Numerical output for these {total_number_of_trials} trials"]
 
 final_report = [ 
 ["Mean", statistics.mean(results_drawn) ] , 
@@ -25,7 +24,9 @@ final_report = [
 [ f"{confidence * 100}%" + " Confidence Interval" , f"True mean will lie between {mean_confidence_interval(results_drawn, confidence) }" ] 
 ]
 
-print( tabulate(final_report,headers, tablefmt="psql"))
+headers = ["Statistical measure", "Numerical output"]
+print(f"\n\t\tMonte Carlo simulation for {total_number_of_trials} trials.\n" + tabulate(final_report,headers, tablefmt="psql"))
+
 
 plt.hist(results_drawn, 300, histtype = 'bar', facecolor = 'green')
 plt.ylabel("Y-AXIS LABEL")
