@@ -1,0 +1,5 @@
+def area_of_triangle_via_heron(first_length, second_length, third_length):
+    s = (1/2) * (first_length + second_length + third_length)
+    return pow( s * (s- first_length) * (s - second_length) * (s - third_length) , 1/2)
+
+print(area_of_triangle_via_heron(3,4,5))
