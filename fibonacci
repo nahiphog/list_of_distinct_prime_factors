@@ -13,10 +13,10 @@ for element in range(how_many_positive_fibonacci_you_want - 1):
 
 list_of_fibonacci_numbers = [0,1]
 
-def generate_fibonacci_numbers():
+def generate_fibonacci_numbers_and_keep_last_two():
     list_of_fibonacci_numbers.append( list_of_fibonacci_numbers[-1] + list_of_fibonacci_numbers[-2] )
-    
-how_many_positive_fibonacci_you_want = 120 # Edit here
-for element in range(how_many_positive_fibonacci_you_want - 1):
-    generate_fibonacci_numbers()
-    list_of_fibonacci_numbers.pop(0) # Only keep the last two
+    list_of_fibonacci_numbers.pop(0)
+
+up_to_which_fibonacci_number = 1 # Edit here
+for element in range(1, up_to_which_fibonacci - 1):
+    generate_fibonacci_numbers_and_keep_last_two()
