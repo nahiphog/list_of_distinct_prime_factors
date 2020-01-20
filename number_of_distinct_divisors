@@ -33,5 +33,3 @@ def sum_of_powers_of_divisors(input_number_here, raise_to_the_power):
             else:
                 pass
         return frequency
-
-print(sum_of_powers_of_divisors(10,3))
