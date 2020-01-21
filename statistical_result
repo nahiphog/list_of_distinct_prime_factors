@@ -34,3 +34,9 @@ plt.xlabel("X-AXIS LABEL")
 plt.title(f"TITLE with {(total_number_of_trials)} runs")
 plt.axis([1,10,0,results_drawn.count(statistics.mode(results_drawn)) * 1.2])
 plt.show()
+
+
+####### Optional:
+'''
+[ "Mode's relative frequency" , f"{results_drawn.count( statistics.mode(results_drawn) ) / total_number_of_trials * 100} %" ] , 
+'''
