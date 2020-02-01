@@ -6,13 +6,11 @@ def give_me_the_list_of_prime_factors(given_number):
     smallerize_this = given_number
 
     while smallerize_this > 1:
-
         if smallerize_this == 1:
             break
         elif smallerize_this == 2:
             list_of_prime_factors.append(2)
             break
-
         else:
             test_this_divisor = 2
             
