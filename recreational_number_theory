@@ -1,10 +1,21 @@
-# [1]
-###### Digital Sum
+######################################################
+##### [1] Digital Sum
+######################################################
 from eulerlib.numtheory import *
 print( digital_sum(input_number) )
 
-# [2]
-###### Digital Root
+######################################################
+##### [2] Digital Root
+######################################################
 from eulerlib.numtheory import *
 print( digital_root(input_number) )
 
+######################################################
+###### [3] Is it a palindome?
+######################################################
+def is_it_a_palindrome(input_number):
+    paste_it_here = str(input_number)
+    if paste_it_here == str(paste_it_here)[::-1]:
+        return True
+    else:
+        return False
