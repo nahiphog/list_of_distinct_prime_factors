@@ -16,7 +16,7 @@ print(frac('36.25').denominator) # 4
 ###### [3] Approximate this fraction, but set a limiting denominator
 ######################################################
 from fractions import Fraction as frac
-print(frac('3.14159265359').limit_denominator(1000)) # 355/113
+print(frac(3.14159265359).limit_denominator(1000)) # 355/113
 
 ######################################################
 ###### [4] Convert this decimal to fraction
