@@ -42,3 +42,9 @@ starting_digit = 1
 stopping_digit = 9
 print ( def is_pandigital(num,starting_digit,stopping_digit) )
 
+######################################################
+##### [6] Convert the word into sum of numerical value of each letter in the word based on its position in the alphabet.
+######################################################
+from eulerlib.etc import *
+print ( word_numerical_val('randomword') )
+
