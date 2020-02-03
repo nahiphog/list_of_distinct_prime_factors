@@ -1,0 +1,6 @@
+# [1]
+###### Find the Greatest Common Divisor (GCD) of 2 numbers
+from eulerlib.numtheory import *
+first_number = 7
+second_number = 14
+print( gcd(first_number , second_number) )
