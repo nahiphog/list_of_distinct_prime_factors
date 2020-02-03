@@ -1,0 +1,10 @@
+# [1]
+###### Digital Sum
+from eulerlib.numtheory import *
+print( digital_sum(input_number) )
+
+# [2]
+###### Digital Root
+from eulerlib.numtheory import *
+print( digital_root(input_number) )
+
