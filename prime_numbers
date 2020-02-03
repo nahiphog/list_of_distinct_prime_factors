@@ -1,11 +1,116 @@
-# [1A] 
-###### List all the primes from 1 til N inclusive via Sieve of Eratosthenes
+######################################################
+###### [1A] List all the primes from 1 til N inclusive via Sieve of Eratosthenes
+######################################################
 from eulerlib.prime_numbers import *
 print_primes_up_to_this_number = 100
 print( primes(print_primes_up_to_this_number) )
 
-# [1B]
-###### List all the primes from 1 til N inclusive via Wheel factorization
+######################################################
+###### [1B] List all the primes from 1 til N inclusive via Wheel factorization
+######################################################
 from eulerlib.prime_numbers import *
 print_primes_up_to_this_number = 100
 print( prime_wheel_fact_gen(print_primes_up_to_this_number) )
+
+######################################################
+###### [2A] Is it a prime number? (Without library)
+######################################################
+def is_it_prime(input_number_here):
+    well_is_it_prime_or_not = True
+    i = 2
+    while i <= (int(pow(input_number_here , 1/2)) + 1):
+
+        if input_number_here == 2:
+            well_is_it_prime_or_not = True
+        elif input_number_here % i == 0:
+            well_is_it_prime_or_not = False
+        else:
+            pass
+        i += 1
+            
+    return well_is_it_prime_or_not
+
+###### [2B] Is it a prime number? (With library)
+from eulerlib.prime_numbers import *
+print( is_prime(input_number_here) )
+
+######################################################
+###### [3A] Prime Factorization nice output
+######################################################
+factorize_this_number = 2137458620009 # Input number here
+
+def prime_factorization(given_number):
+    list_of_prime_factors = []
+    smallerize_this = given_number
+
+    # Find all the prime factors and their respective powers
+    while smallerize_this > 1:
+        if smallerize_this == 1:
+            break
+        elif smallerize_this == 2:
+            list_of_prime_factors.append(2)
+            break
+        else:
+            test_this_divisor = 2
+            
+            while smallerize_this >= test_this_divisor:
+                while smallerize_this % test_this_divisor == 0:
+                    smallerize_this = int(smallerize_this / test_this_divisor)
+                    list_of_prime_factors.append(test_this_divisor)
+                test_this_divisor += 1
+
+    # Only keep distinct prime factors
+    list_of_distinct_prime_factors = list(dict.fromkeys(list( list_of_prime_factors )))
+
+    # Only list the powers of these distint prime factors
+    power_listing = []
+    for element in list_of_distinct_prime_factors:
+        power_listing.append([ element, list_of_prime_factors.count(element) ] )
+    
+    # Display output part
+    final_output = ""
+    for element in power_listing:
+        if element[1] == 1:
+            final_output += str(element[0]) + " x "
+        else:
+            final_output += str(element[0]) + "^" + str(element[1]) + " x "
+
+    return final_output[:-3]
+
+# Display output
+print(f"The prime factorization of {factorize_this_number} is:\n\n{ prime_factorization(factorize_this_number) }\n")
+
+######################################################
+###### [3B] Prime Factorization list output
+######################################################
+factorize_this_number = 2137458620009 # Input number here
+
+def prime_factorization(given_number):
+    list_of_prime_factors = []
+    smallerize_this = given_number
+
+    # Find all the prime factors and their respective powers
+    while smallerize_this > 1:
+        if smallerize_this == 1:
+            break
+        elif smallerize_this == 2:
+            list_of_prime_factors.append(2)
+            break
+        else:
+            test_this_divisor = 2
+            
+            while smallerize_this >= test_this_divisor:
+                while smallerize_this % test_this_divisor == 0:
+                    smallerize_this = int(smallerize_this / test_this_divisor)
+                    list_of_prime_factors.append(test_this_divisor)
+                test_this_divisor += 1
+
+    # Only keep distinct prime factors
+    list_of_distinct_prime_factors = list(dict.fromkeys(list( list_of_prime_factors )))
+
+    # Only list the powers of these distint prime factors
+    power_listing = []
+    for element in list_of_distinct_prime_factors:
+        power_listing.append([ element, list_of_prime_factors.count(element) ] )
+
+    return power_listing
