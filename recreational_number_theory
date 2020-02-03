@@ -25,7 +25,6 @@ def is_it_a_palindrome(input_number):
 ######################################################
 from eulerlib.etc import *
 print( is_palindrome (input_number_base_10 , base) )
-
         
 ######################################################
 ##### [4] Convert to different number base
