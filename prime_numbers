@@ -116,3 +116,31 @@ def prime_factorization(given_number):
         power_listing.append([ element, list_of_prime_factors.count(element) ] )
 
     return power_listing
+    
+######################################################
+###### [4] Euler Totient function
+######################################################
+def euler_totient_function(given_number):
+    # Figure out all the prime factors first
+    list_of_prime_factors = []
+    smallerize_this = given_number
+    while smallerize_this > 1:
+        if smallerize_this == 1:
+            break
+        elif smallerize_this == 2:
+            list_of_prime_factors.append(2)
+            break
+        else:
+            test_this_divisor = 2
+            while smallerize_this >= test_this_divisor:
+                while smallerize_this % test_this_divisor == 0:
+                    smallerize_this = int(smallerize_this / test_this_divisor)
+                    list_of_prime_factors.append(test_this_divisor)
+                test_this_divisor += 1
+    # Only keep distinct prime factors
+    list_of_prime_factors = list(dict.fromkeys(list(list_of_prime_factors)))
+    # Apply the Euler Totient Function formula
+    product = given_number
+    for element in list_of_prime_factors:
+        product *= (1 - 1/element)
+    return int(product)
