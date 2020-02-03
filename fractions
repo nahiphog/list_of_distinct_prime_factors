@@ -1,0 +1,20 @@
+######################################################
+###### [1A] Simplify this fraction
+######################################################
+from fractions import Fraction as frac
+print(frac(-45, 54)) # -5/6
+print(frac('3.14159265359')) # 314159265359/100000000000
+
+######################################################
+###### [1B] Simplify this fraction, but only display the numerator/denominator
+######################################################
+from fractions import Fraction as frac
+print(frac('36.25').numerator) # 145
+print(frac('36.25').denominator) # 4
+
+######################################################
+###### [3] Approximate this fraction, but set a limiting denominator
+######################################################
+from fractions import Fraction as frac
+print(frac('3.14159265359').limit_denominator(1000)) # 355/113
+
