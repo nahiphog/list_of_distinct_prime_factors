@@ -16,8 +16,8 @@ def number_of_divisors(input_number_here):
 # [1B]
 ###### Calculate the number of proper divisors         
 def number_of_proper_divisors(input_number_here):
-    if input_number_here == 1:
-        return 0
+    if input_number_here < 3:
+        return input_number_here - 1
     else:
         return number_of_divisors(input_number_here) - 2
         
