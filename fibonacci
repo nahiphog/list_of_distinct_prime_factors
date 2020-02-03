@@ -20,3 +20,14 @@ def generate_fibonacci_numbers_and_keep_last_two():
 up_to_which_fibonacci_number = 100 # Edit here
 for element in range(1, up_to_which_fibonacci_number):
     generate_fibonacci_numbers_and_keep_last_two()
+
+######## [2A] Summon via library: Generate how many Fibonacci numbers
+
+from eulerlib.fibonacci import *
+how_many_fibonacci_numbers = 123
+print( first_n_fibo(how_many_fibonacci_numbers, start = 1) )
+
+######## [2B] Summon via library: Get the all the Fibonacci number less than N
+from eulerlib.fibonacci import *
+largest_fibonacci_number_less_than = 123
+print( fibo_less_than(largest_fibonacci_number_less_than, start = 1) )
