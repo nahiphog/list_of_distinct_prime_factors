@@ -29,8 +29,11 @@ def is_it_prime(input_number_here):
         i += 1
             
     return well_is_it_prime_or_not
+    
 
+######################################################
 ###### [2B] Is it a prime number? (With library)
+######################################################
 from eulerlib.prime_numbers import *
 print( is_prime(input_number_here) )
 
