@@ -21,8 +21,23 @@ def number_of_proper_divisors(input_number_here):
     else:
         return number_of_divisors(input_number_here) - 2
         
-# [2]
-###### sigma_n(x)
+# [2A]
+###### Sum of divisors, sigma_1 (x)
+def sum_of_of_divisors(input_number_here):
+    frequency = 0
+    
+    if input_number_here == 1:
+        return 1
+    else:
+        for test_integer in range(1, input_number_here + 1):
+            if input_number_here % test_integer == 0:
+                frequency += test_integer
+            else:
+                pass
+        return frequency
+
+# [2B] 
+###### Sum of powers of divisors, sigma_n (x)
 def sum_of_powers_of_divisors(input_number_here, raise_to_the_power):
     frequency = 0
     
