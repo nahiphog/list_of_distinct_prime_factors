@@ -11,8 +11,7 @@ def factorialize_this(input_integer):
 ##### [2A] Find the combination, binom(n,r)
 ######################################################
 from eulerlib.numtheory import *
-top = 10
-bottom = 5
+top,bottom = 10, 5 # INPUT VALUES HERE
 print( nCr( top , bottom ) )
 
 ######################################################
