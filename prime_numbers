@@ -10,7 +10,7 @@ print( primes(print_primes_up_to_this_number) )
 ######################################################
 from eulerlib.prime_numbers import *
 print_primes_up_to_this_number = 100
-print( prime_wheel_fact_gen(print_primes_up_to_this_number) )
+print( primes_wheel_fact(print_primes_up_to_this_number) )
 
 ######################################################
 ###### [2A] Is it a prime number? (Without library)
