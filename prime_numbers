@@ -1,0 +1,11 @@
+# [1A] 
+###### List all the primes from 1 til N inclusive via Sieve of Eratosthenes
+from eulerlib.prime_numbers import *
+print_primes_up_to_this_number = 100
+print( primes(print_primes_up_to_this_number) )
+
+# [1B]
+###### List all the primes from 1 til N inclusive via Wheel factorization
+from eulerlib.prime_numbers import *
+print_primes_up_to_this_number = 100
+print( prime_wheel_fact_gen(print_primes_up_to_this_number) )
