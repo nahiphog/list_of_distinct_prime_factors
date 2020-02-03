@@ -37,7 +37,29 @@ from eulerlib.prime_numbers import *
 print( is_prime(input_number_here) )
 
 ######################################################
-###### [3A] Prime Factorization nice output
+###### [3] List of all distinct prime factors
+######################################################
+def list_of_distinct_prime_factors(given_number):
+    list_of_prime_factors = []
+    smallerize_this = given_number
+    while smallerize_this > 1:
+        if smallerize_this == 1:
+            break
+        elif smallerize_this == 2:
+            list_of_prime_factors.append(2)
+            break
+        else:
+            test_this_divisor = 2          
+            while smallerize_this >= test_this_divisor:
+                while smallerize_this % test_this_divisor == 0:
+                    smallerize_this = int(smallerize_this / test_this_divisor)
+                    list_of_prime_factors.append(test_this_divisor)
+                test_this_divisor += 1
+    
+    return list(dict.fromkeys(list_of_prime_factors))
+
+######################################################
+###### [4A] Prime Factorization nice output
 ######################################################
 factorize_this_number = 2137458620009 # Input number here
 
@@ -83,7 +105,7 @@ def prime_factorization(given_number):
 print(f"The prime factorization of {factorize_this_number} is:\n\n{ prime_factorization(factorize_this_number) }\n")
 
 ######################################################
-###### [3B] Prime Factorization list output
+###### [4B] Prime Factorization list output
 ######################################################
 factorize_this_number = 2137458620009 # Input number here
 
@@ -118,7 +140,7 @@ def prime_factorization(given_number):
     return power_listing
     
 ######################################################
-###### [4] Euler Totient function
+###### [5] Euler Totient function
 ######################################################
 def euler_totient_function(given_number):
     # Figure out all the prime factors first
