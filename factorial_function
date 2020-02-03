@@ -22,3 +22,11 @@ from eulerlib.numtheory import *
 top = 10
 bottom = 5
 print( nPr( top , bottom ) )
+
+######################################################
+# [3] de Polignac's formula https://en.wikipedia.org/wiki/Legendre%27s_formula
+######################################################
+import math
+def number_of_trailing_zeroes(number_factorial):
+    upper_sum = math.floor( math.log(number_factorial, 5) )
+    return sum( math.floor( number_factorial / (5 ** k)) for k in range(1, upper_sum +1 ) )
