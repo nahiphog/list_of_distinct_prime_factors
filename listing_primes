@@ -1,0 +1,5 @@
+# [1] List all the primes from 1 til N inclusive
+
+from eulerlib import primes
+print(primes(1234))
+
