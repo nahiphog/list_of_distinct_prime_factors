@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 results_drawn = []
 
 # Change this value
-total_number_of_trials = 0 
+total_number_of_trials = 10 
 
 final_report = [ 
 ["Mean",statistics.mean(results_drawn)],
