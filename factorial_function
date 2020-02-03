@@ -1,6 +1,22 @@
+# [1]
+##### Calculate the factorial of non-negative integer N, N!
 def factorialize_this(input_integer):
     if input_integer == 0:
         return 1
 
     else:
         return input_integer * factorialize_this(input_integer - 1)
+
+# [2A] 
+##### Find the combination, binom(n,r)
+from eulerlib.numtheory import *
+top = 10
+bottom = 5
+print( nCr( top , bottom ) )
+
+# [2B] 
+##### Find the permutation, perm(n,r)
+from eulerlib.numtheory import *
+top = 10
+bottom = 5
+print( nPr( top , bottom ) )
