@@ -1,5 +1,6 @@
-# [1A]
-####### Calculate the total number of positive divisors of a positive integer input, including 1 and itself
+######################################################
+###### [1A] Calculate the total number of positive divisors of a positive integer input, including 1 and itself
+######################################################
 def number_of_divisors(input_number_here):
     frequency = 0
     
@@ -13,16 +14,18 @@ def number_of_divisors(input_number_here):
                 pass
         return frequency
         
-# [1B]
-###### Calculate the number of proper divisors         
+######################################################
+###### [1B] Calculate the number of proper divisors         
+######################################################
 def number_of_proper_divisors(input_number_here):
     if input_number_here < 3:
         return input_number_here - 1
     else:
         return number_of_divisors(input_number_here) - 2
         
-# [2A]
-###### Sum of divisors, sigma_1 (x)
+######################################################
+###### [2A] Sum of divisors, sigma_1 (x)
+######################################################
 def sum_of_of_divisors(input_number_here):
     frequency = 0
     
@@ -36,8 +39,9 @@ def sum_of_of_divisors(input_number_here):
                 pass
         return frequency
 
-# [2B] 
-###### Sum of powers of divisors, sigma_n (x)
+######################################################
+###### [2B] Sum of powers of divisors, sigma_n (x)
+######################################################
 def sum_of_powers_of_divisors(input_number_here, raise_to_the_power):
     frequency = 0
     
