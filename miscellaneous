@@ -1,0 +1,5 @@
+######################################################
+##### [1] Quadratic residue
+######################################################
+input_number = 20
+quadratic_residues = set( [ (integer ** 2) % input_number for integer in range(0, input_number)] )
