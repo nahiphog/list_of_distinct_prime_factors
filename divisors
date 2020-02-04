@@ -67,6 +67,6 @@ def sum_of_powers_of_divisors(input_number_here, raise_to_the_power):
 ######################################################
 from eulerlib.numtheory import *
 def list_of_unitary_divisors(input_number_here):
-    return [ verified_divisor for verified_divisor in range(1, input_number_here + 1) if (input_number_here % verified_divisor == 0) and gcd(verified_divisor, input_number_here // verified_divisor ) ]
+    return [ verified_divisor for verified_divisor in range(1, input_number_here + 1) if (input_number_here % verified_divisor == 0) and gcd(verified_divisor, input_number_here // verified_divisor ) == 1]
 
 
