@@ -169,7 +169,7 @@ def euler_totient_function(given_number):
     
     
 ######################################################
-###### [6] Arithmetic Derivative function
+###### [6A] Arithmetic Derivative function (looping)
 ######################################################
 from eulerlib.prime_numbers import *
 
@@ -191,3 +191,32 @@ def arithmetic_derivative_function(input_number_here):
                     test_this_divisor += 1
 
         return test_this_divisor * arithmetic_derivative_function(divided_by) + divided_by
+        
+######################################################
+###### [6B] Arithmetic Derivative function (Leibniz Rule)
+######################################################
+def arithmetic_derivative_function(input_number_here):
+    list_of_prime_factors = []
+    smallerize_this = input_number_here
+
+    # Find all the prime factors and their respective powers
+    while smallerize_this > 1:
+        if smallerize_this == 1:
+            break
+        elif smallerize_this == 2:
+            list_of_prime_factors.append(2)
+            break
+        else:
+            test_this_divisor = 2
+            
+            while smallerize_this >= test_this_divisor:
+                while smallerize_this % test_this_divisor == 0:
+                    smallerize_this = int(smallerize_this / test_this_divisor)
+                    list_of_prime_factors.append(test_this_divisor)
+                test_this_divisor += 1
+
+    reciprocal_sum = 0
+    for element in list_of_prime_factors:
+        reciprocal_sum += 1/element
+
+    return int ( input_number_here * reciprocal_sum )
