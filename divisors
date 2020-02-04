@@ -61,3 +61,12 @@ def sum_of_powers_of_divisors(input_number_here, raise_to_the_power):
             else:
                 pass
         return frequency
+        
+######################################################
+###### [3] List of unitary divisors https://en.wikipedia.org/wiki/Unitary_divisor
+######################################################
+from eulerlib.numtheory import *
+def list_of_unitary_divisors(input_number_here):
+    return [ verified_divisor for verified_divisor in range(1, input_number_here + 1) if (input_number_here % verified_divisor == 0) and gcd(divisor, input_number_here // verified_divisor ) ]
+
+
