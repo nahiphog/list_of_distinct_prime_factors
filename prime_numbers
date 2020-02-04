@@ -4,6 +4,8 @@
 from eulerlib.prime_numbers import *
 print_primes_up_to_this_number = 100
 print( primes(print_primes_up_to_this_number) )
+# OR
+print( eulerlib.list_primes(print_primes_up_to_this_number) )
 
 ######################################################
 ###### [1B] List all the primes from 1 til N inclusive via Wheel factorization
