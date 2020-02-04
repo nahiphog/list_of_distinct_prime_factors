@@ -1,5 +1,12 @@
 ######################################################
-###### [1A] Calculate the total number of positive divisors of a positive integer input, including 1 and itself
+###### [1A] List of divisors
+######################################################
+def list_of_divisors(input_number_here):
+    return [ divisor for divisor in range(1, input_number_here + 1) if input_number_here % divisor == 0 ]
+
+
+######################################################
+###### [1B] Calculate the total number of positive divisors of a positive integer input, including 1 and itself
 ######################################################
 def number_of_divisors(input_number_here):
     frequency = 0
@@ -15,7 +22,7 @@ def number_of_divisors(input_number_here):
         return frequency
         
 ######################################################
-###### [1B] Calculate the number of proper divisors         
+###### [1C] Calculate the number of proper divisors         
 ######################################################
 def number_of_proper_divisors(input_number_here):
     if input_number_here < 3:
@@ -54,3 +61,5 @@ def sum_of_powers_of_divisors(input_number_here, raise_to_the_power):
             else:
                 pass
         return frequency
+        
+
