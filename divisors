@@ -2,7 +2,7 @@
 ###### [1A] List of divisors
 ######################################################
 def list_of_divisors(input_number_here):
-    return [ divisor for divisor in range(1, input_number_here + 1) if input_number_here % divisor == 0 ]
+    return [ verified_divisor for verified_divisor in range(1, input_number_here + 1) if input_number_here % verified_divisor == 0 ]
 
 
 ######################################################
