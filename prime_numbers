@@ -166,3 +166,28 @@ def euler_totient_function(given_number):
     for element in list_of_prime_factors:
         product *= (1 - 1/element)
     return int(product)
+    
+    
+######################################################
+###### [6] Arithmetic Derivative function
+######################################################
+from eulerlib.prime_numbers import *
+
+def arithmetic_derivative_function(input_number_here):
+    if is_prime(input_number_here):
+        return 1
+
+    else:
+        # Find the smallest prime factors of this number
+        smallerize_this = input_number_here
+        divided_by = 0
+        while divided_by == 0:
+            test_this_divisor = 2          
+            while smallerize_this >= test_this_divisor:
+                if smallerize_this % test_this_divisor == 0:
+                    divided_by = int(smallerize_this / test_this_divisor)
+                    break
+                else:
+                    test_this_divisor += 1
+
+        return test_this_divisor * arithmetic_derivative_function(divided_by) + divided_by
