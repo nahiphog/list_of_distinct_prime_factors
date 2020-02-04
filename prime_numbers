@@ -220,3 +220,48 @@ def arithmetic_derivative_function(input_number_here):
         reciprocal_sum += 1/element
 
     return int ( input_number_here * reciprocal_sum )
+    
+######################################################
+###### [7A] Prime omega function https://en.wikipedia.org/wiki/Prime_omega_function
+###################################################### (count the number of prime factors with multiplicity)
+def prime_omega_function(given_number):
+    list_of_prime_factors = []
+    smallerize_this = given_number
+    while smallerize_this > 1:
+        if smallerize_this == 1:
+            break
+        elif smallerize_this == 2:
+            list_of_prime_factors.append(2)
+            break
+        else:
+            test_this_divisor = 2          
+            while smallerize_this >= test_this_divisor:
+                while smallerize_this % test_this_divisor == 0:
+                    smallerize_this = int(smallerize_this / test_this_divisor)
+                    list_of_prime_factors.append(test_this_divisor)
+                test_this_divisor += 1
+    
+    return len(list_of_prime_factors)
+    
+######################################################
+###### [7B] Little Prime omega function https://en.wikipedia.org/wiki/Prime_omega_function
+###################################################### (count the distinct number of prime factors)
+
+def little_prime_omega_function(given_number):
+    list_of_prime_factors = []
+    smallerize_this = given_number
+    while smallerize_this > 1:
+        if smallerize_this == 1:
+            break
+        elif smallerize_this == 2:
+            list_of_prime_factors.append(2)
+            break
+        else:
+            test_this_divisor = 2          
+            while smallerize_this >= test_this_divisor:
+                while smallerize_this % test_this_divisor == 0:
+                    smallerize_this = int(smallerize_this / test_this_divisor)
+                    list_of_prime_factors.append(test_this_divisor)
+                test_this_divisor += 1
+    
+    return len(list(dict.fromkeys(list_of_prime_factors)))
