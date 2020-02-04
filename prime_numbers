@@ -265,3 +265,25 @@ def little_prime_omega_function(given_number):
                 test_this_divisor += 1
     
     return len(list(dict.fromkeys(list_of_prime_factors)))
+    
+######################################################
+###### [7C] Liouville function https://en.wikipedia.org/wiki/Liouville_function
+######################################################
+def liouville_function(given_number):
+    list_of_prime_factors = []
+    smallerize_this = given_number
+    while smallerize_this > 1:
+        if smallerize_this == 1:
+            break
+        elif smallerize_this == 2:
+            list_of_prime_factors.append(2)
+            break
+        else:
+            test_this_divisor = 2          
+            while smallerize_this >= test_this_divisor:
+                while smallerize_this % test_this_divisor == 0:
+                    smallerize_this = int(smallerize_this / test_this_divisor)
+                    list_of_prime_factors.append(test_this_divisor)
+                test_this_divisor += 1
+    
+    return pow( -1, len(list_of_prime_factors) )
