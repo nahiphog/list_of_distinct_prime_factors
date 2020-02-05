@@ -27,7 +27,11 @@ final_report = [
 # Print the table of the statistical result
 headers = ["Statistical measure", "Numerical output"]
 print(f"\n\t\tMonte Carlo simulation for {total_number_of_trials} trials.\n" + tabulate(final_report,headers, tablefmt="psql"))
-# Accompany this table with a  histogram
+
+
+############################################################
+######### Accompany this table with a histogram ############
+############################################################
 plt.hist(results_drawn, 300, histtype = 'bar', facecolor = 'green')
 plt.ylabel("Y-AXIS LABEL")
 plt.xlabel("X-AXIS LABEL")
@@ -35,8 +39,24 @@ plt.title(f"TITLE with {(total_number_of_trials)} runs")
 plt.axis([1,10,0,results_drawn.count(statistics.mode(results_drawn)) * 1.2])
 plt.show()
 
+####################################################################################
+######### Accompany this table with a histogram with relative frequency ############
+####################################################################################
 
-####### Optional:
-'''
-[ "Mode's relative frequency" , f"{results_drawn.count( statistics.mode(results_drawn) ) / total_number_of_trials * 100} %" ] , 
-'''
+all_different_results = list( dict.fromkeys(results_drawn) )
+frequency_count = [ results_drawn.count(element) * 100 / len(final_result) for element in all_different_results ]
+
+plt.bar(all_different_results ,frequency_count,align='center') # A bar chart
+plt.xlabel('X-AXIS')
+plt.ylabel('Relative frequency (%)')
+plt.title(f"Monte carlo simulation with {(total_number_of_trials)} runs")
+
+draw_horizontal_lines = False
+if draw_horizontal_lines == True:
+    for i in range(len(frequency_count)):
+        plt.hlines(frequency_count[i],0,all_different_results[i]) # Here you are drawing the horizontal lines
+
+plt.show()
+
+
+
