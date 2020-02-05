@@ -1,11 +1,17 @@
 ######################################################
-##### [1] Calculate the factorial of non-negative integer N, N!
+##### [1A] Calculate the factorial of non-negative integer N, N! (No library)
 ######################################################
 def factorialize_this(input_integer):
     if input_integer == 0:
         return 1
     else:
         return input_integer * factorialize_this(input_integer - 1)
+        
+######################################################
+##### [1B] Calculate the factorial of non-negative integer N, N! (With library)
+######################################################
+from math import factorial
+print( factorial(input_number_here) )
 
 ######################################################
 ##### [2A] Find the combination, binom(n,r)
