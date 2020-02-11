@@ -1,4 +1,4 @@
-```python
+
 ######################################################
 ###### [1A] List all the primes from 1 til N inclusive via Sieve of Eratosthenes
 ######################################################
@@ -335,4 +335,3 @@ def mobius_function(given_number):
             return 1
         else:
             return -1
-```
