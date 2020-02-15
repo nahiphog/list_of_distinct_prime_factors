@@ -8,6 +8,13 @@ import pylab as p  # for Kurtosis
 from tabulate import tabulate
 import matplotlib.pyplot as plt
 
+def mean_confidence_interval(data, confidence):
+    a = 1.0 * np.array(data)
+    n = len(a)
+    m, se = np.mean(a), scipy.stats.sem(a)
+    h = se * scipy.stats.t.ppf((1 + confidence) / 2., n-1)
+    return m-h, m+h
+
 # Name of list for the record drawn from Monte Carlo simulation
 results_drawn = []
 
