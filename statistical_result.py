@@ -65,5 +65,23 @@ if draw_horizontal_lines == True:
 
 plt.show()
 
+####################################################################################
+######### Timer basis ##############################################################
+####################################################################################
+import random
+from time import time
+
+duration_to_run_in_seconds = 5
+
+terminate_experiment = time() +  duration_to_run_in_seconds
+
+results_drawn = []
+
+while time() < terminate_experiment:
+    results_drawn.append(  random.randint(0, 10) )
+
+print(len(results_drawn))
+
+
 
 
