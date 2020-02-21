@@ -40,6 +40,7 @@ print(f"\n\t\tMonte Carlo simulation for {total_number_of_trials} trials.\n" + t
 ######### Accompany this table with a histogram ############
 ############################################################
 plt.hist(results_drawn, 300, histtype = 'bar', facecolor = 'green')
+plt.style.use('seaborn-whitegrid')
 plt.ylabel("Y-AXIS LABEL")
 plt.xlabel("X-AXIS LABEL")
 plt.title(f"TITLE with {(total_number_of_trials)} runs")
