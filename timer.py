@@ -12,4 +12,4 @@ print(f"The total runtime of this script is {datetime.now() - startTime}.\n")
 import time
 start_time = time.time()
 
-print("This script took %s seconds" % (time.time() - start_time))
+print("This script took %s seconds to run." % (time.time() - start_time))
