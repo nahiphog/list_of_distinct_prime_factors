@@ -30,7 +30,7 @@ final_report = [
 
 # Print the table of the statistical result
 headers = ["Statistical measure", "Output"]
-print(f"\n\t\tMonte Carlo simulation for {total_number_of_trials:,} trials.\n" + 
+print(f"\n\t\tMonte Carlo simulation for {total_number_of_trials:,} trials\n" + 
 tabulate(final_report,headers, tablefmt="psql" , colalign=("right",)))
 
 ############################################################
