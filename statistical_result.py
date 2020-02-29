@@ -1,10 +1,6 @@
-import statistics # To calculate the mean and median
-import numpy as np # To calculate the variance
-import pylab as p  # To calculate skewness
-import scipy.stats
-from scipy.stats import kurtosis
-from scipy.stats import skew 
-import pylab as p  # for Kurtosis
+import statistics # To calculate the Mean, Median, Mode
+import numpy # To calculate the Variance and Confidence interval
+import scipy.stats # To calculate skewness and kurtosis
 from tabulate import tabulate
 import matplotlib.pyplot as plt
 
@@ -14,19 +10,21 @@ results_drawn = []
 # Change this value
 total_number_of_trials = 10 
 
+# Compute confidence interval
 confidence_level = 0.99
 def mean_confidence_interval(data, confidence):
-    a = 1.0 * np.array(data)
+    a = 1.0 * numpy.array(data)
     n = len(a)
-    m, se = np.mean(a), scipy.stats.sem(a)
+    m, se = numpy.mean(a), scipy.stats.sem(a)
     h = se * scipy.stats.t.ppf((1 + confidence) / 2., n-1)
     return [m-h, m+h]
-evaluate_ci = mean_confidence_interval(results_drawn, confidence_level)
+evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level)
 
 final_report = [ 
 ["Mean",statistics.mean(results_drawn)], ["Median",statistics.median(results_drawn)], ["Mode",statistics.mode(results_drawn)], 
-["Variance",np.var(results_drawn)], ["Skewness",skew(results_drawn)], ["Kurtosis" , kurtosis(results_drawn)],
-[f"{confidence_level * 100}% Confidence Interval", f"{evaluate_ci[0] } ≤ Mean ≤ {evaluate_ci[1] }"] ]
+["Variance",np.var(results_drawn)], 
+["Skewness",scipy.stats.skew(results_drawn)], ["Kurtosis" , scipy.stats.kurtosis(results_drawn)],
+[f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[0] } ≤ Mean ≤ {evaluate_c_i[1] }"] ]
 
 # Print the table of the statistical result
 print(f"\n\t\t Monte Carlo simulation for {total_number_of_trials:,} trials\n" +
