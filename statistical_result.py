@@ -8,6 +8,7 @@ import pylab as p  # for Kurtosis
 from tabulate import tabulate
 import matplotlib.pyplot as plt
 
+confidence = 0.99
 def mean_confidence_interval(data, confidence):
     a = 1.0 * np.array(data)
     n = len(a)
