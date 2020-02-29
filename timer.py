@@ -1,10 +1,10 @@
 ######################################################
-###### [1] In general clock terms.
+###### [1] In general clock terms
 ######################################################
 from datetime import datetime
-startTime = datetime.now()
+start_time = datetime.now()
 
-print(f"The total runtime of this script is {datetime.now() - startTime}.\n")
+print(f"The total runtime of this script is {datetime.now() - start_time}.\n")
 
 ######################################################
 ###### [2] In seconds only
