@@ -8,6 +8,12 @@ import pylab as p  # for Kurtosis
 from tabulate import tabulate
 import matplotlib.pyplot as plt
 
+# Name of list for the record drawn from Monte Carlo simulation
+results_drawn = []
+
+# Change this value
+total_number_of_trials = 10 
+
 confidence_level = 0.99
 def mean_confidence_interval(data, confidence):
     a = 1.0 * np.array(data)
@@ -15,25 +21,17 @@ def mean_confidence_interval(data, confidence):
     m, se = np.mean(a), scipy.stats.sem(a)
     h = se * scipy.stats.t.ppf((1 + confidence) / 2., n-1)
     return [m-h, m+h]
-
-# Name of list for the record drawn from Monte Carlo simulation
-results_drawn = []
-
-# Change this value
-total_number_of_trials = 10 
+evaluate_ci = mean_confidence_interval(results_drawn, confidence_level)
 
 final_report = [ 
 ["Mean",statistics.mean(results_drawn)], ["Median",statistics.median(results_drawn)], ["Mode",statistics.mode(results_drawn)], 
 ["Variance",np.var(results_drawn)], ["Skewness",skew(results_drawn)], ["Kurtosis" , kurtosis(results_drawn)],
-[f"{confidence_level * 100}% Confidence Interval", 
-f"( {mean_confidence_interval(results_drawn, confidence_level)[0] } ≤ Mean ≤ {mean_confidence_interval(results_drawn, confidence_level)[1] } ) "] 
-]
+[f"{confidence_level * 100}% Confidence Interval", f"( {evaluate_ci[0] } ≤ Mean ≤ {evaluate_ci[1] } ) "] ]
 
 # Print the table of the statistical result
 headers = ["Statistical measure", "Output"]
 print(f"\n\t\tMonte Carlo simulation for {total_number_of_trials} trials.\n" + 
 tabulate(final_report,headers, tablefmt="psql" , colalign=("right",))
-
 
 ############################################################
 ######### Accompany this table with a histogram ############
