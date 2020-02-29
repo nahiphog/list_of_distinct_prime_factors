@@ -26,7 +26,7 @@ evaluate_ci = mean_confidence_interval(results_drawn, confidence_level)
 final_report = [ 
 ["Mean",statistics.mean(results_drawn)], ["Median",statistics.median(results_drawn)], ["Mode",statistics.mode(results_drawn)], 
 ["Variance",np.var(results_drawn)], ["Skewness",skew(results_drawn)], ["Kurtosis" , kurtosis(results_drawn)],
-[f"{confidence_level * 100}% Confidence Interval", f"( {evaluate_ci[0] } ≤ Mean ≤ {evaluate_ci[1] } ) "] ]
+[f"{confidence_level * 100}% Confidence Interval", f"{evaluate_ci[0] } ≤ Mean ≤ {evaluate_ci[1] }"] ]
 
 # Print the table of the statistical result
 headers = ["Statistical measure", "Output"]
