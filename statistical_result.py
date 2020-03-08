@@ -28,7 +28,7 @@ final_report = [
 
 # Print the table of the statistical result
 print(f"\n\t\t Monte Carlo simulation for {total_number_of_trials:,} trials\n" +
-tabulate(final_report,["Statistical measure", "Output"], tablefmt="psql" , colalign=("right",)))
+tabulate(final_report,["Statistical measure", "Output"], tablefmt="fancy_grid" , colalign=("right",)))
 
 ############################################################
 ######### Accompany this table with a histogram ############
