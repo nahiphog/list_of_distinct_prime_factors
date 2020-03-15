@@ -39,11 +39,14 @@ print(Decimal(numerator / denominator))
 ######################################################
 ###### [6] Generate convergent continued fractions
 ######################################################
-# For simplicity sake, assume the number is in the range (0,1)
+from decimal import *
+getcontext().prec = 100
 
+# For simplicity sake, assume the number is in the range (0,1)
 # Input here, make sure to have at least 2 elements
 continued_fraction_listing = [3, 3, 9, 2, 2, 4, 6, 2, 1, 1, 3, 1, 18]
 
+print(continued_fraction_listing, "\n")
 how_long_is_this_list = len(continued_fraction_listing)
 
 numerator_list = [ 1 , continued_fraction_listing[1] ]
@@ -56,5 +59,6 @@ while len(continued_fraction_listing) > 0:
     use_this_number = continued_fraction_listing.pop(0)
     numerator_list.append( use_this_number * numerator_list[-1] + numerator_list[-2] )
     denominator_list.append( use_this_number * denominator_list[-1] + denominator_list[-2] )
-    
-for element in range(how_long_is_this_list): print(f"{numerator_list[element]}/{denominator_list[element]}" )
+
+for element in range(how_long_is_this_list): 
+    print(f"{numerator_list[element]}/{denominator_list[element]} = {Decimal(numerator_list[element] /denominator_list[element]  ) }" )
