@@ -1,5 +1,5 @@
-import statistics # To calculate the Mean, Median, Mode
-import numpy # To calculate the Variance and Confidence interval
+import statistics # To calculate the Mean, Median, Mode, Sample Variance
+import numpy # To calculate the Confidence interval
 import scipy.stats # To calculate skewness and kurtosis
 from tabulate import tabulate
 import matplotlib.pyplot as plt
@@ -22,7 +22,7 @@ evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level)
 
 final_report = [ 
 ["Mean",statistics.mean(results_drawn)], ["Median",statistics.median(results_drawn)], ["Mode",statistics.mode(results_drawn)], 
-["Variance",np.var(results_drawn)], 
+["Sample variance",statistics.variance(results_drawn)], 
 ["Skewness",scipy.stats.skew(results_drawn)], ["Kurtosis" , scipy.stats.kurtosis(results_drawn)],
 [f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[0] } ≤ Mean ≤ {evaluate_c_i[1] }"] ]
 
