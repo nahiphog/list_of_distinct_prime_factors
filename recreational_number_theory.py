@@ -96,8 +96,8 @@ for index in range(desired_solutions):
     x_solution.append( x_solution[0] * x_last_solution + n * y_solution[0] * y_last_solution )
     y_solution.append( x_solution[0] * y_last_solution + y_solution[0] * x_last_solution )
 
-print_this_table = [ [ x_solution[element] , y_solution[element] ] for element in range(desired_solutions) ]
+print_this_table = [[element + 1 , x_solution[element] , y_solution[element] ] for element in range(desired_solutions) ]
 
 # Output solution
 print(f"\nThe first {desired_solutions} solutions to the Pell's equation [ x^2 - {n} y^2 = 1 ] are:\n\n" +  
-    tabulate(print_this_table, ["x", "y"], tablefmt="fancy_grid" , colalign=("right",)) )
+    tabulate(print_this_table, ["Index", "x", "y"], tablefmt="fancy_grid" , colalign=("right",)) )
