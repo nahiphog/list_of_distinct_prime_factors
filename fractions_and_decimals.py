@@ -35,3 +35,27 @@ numerator = 63025537500171819768857085964393506579173288365762101476571139549214
 denominator = 1284818119838213405756315260059047204398389394375816015329163156623582078083657717559313924216917551084967127979654735160558454575333744643714247390793231
 
 print(Decimal(numerator / denominator))
+
+######################################################
+###### [6] Generate convergent continued fractions
+######################################################
+# For simplicity sake, assume the number is in the range (0,1)
+# Input here, make sure to have at least 2 elements
+continued_fraction_listing = [3, 3, 9, 2, 2, 4, 6, 2, 1, 1, 3, 1, 18]
+
+how_long_is_this_list = len(continued_fraction_listing)
+
+numerator_list = [ 1 , continued_fraction_listing[1] ]
+denominator_list = [ continued_fraction_listing[0] , continued_fraction_listing[0] * continued_fraction_listing[1] + 1 ]
+
+continued_fraction_listing.pop(0)
+continued_fraction_listing.pop(0)
+
+while len(continued_fraction_listing) > 0:
+    use_this_number = continued_fraction_listing.pop(0)
+    numerator_list.append( use_this_number * numerator_list[-1] + numerator_list[-2] )
+    denominator_list.append( use_this_number * denominator_list[-1] + denominator_list[-2] )
+
+convergent_fractions_list = [ [ numerator_list[i] , denominator_list[i] ] for i in range(how_long_is_this_list) ] 
+
+for element in convergent_fractions_list: print(f"{element[0]}/{element[1]}" )
