@@ -101,3 +101,13 @@ print_this_table = [[element + 1 , x_solution[element] , y_solution[element] ] f
 # Output solution
 print(f"\nThe first {desired_solutions} solutions to the Pell's equation [ x^2 - {n} y^2 = 1 ] are:\n\n" +  
     tabulate(print_this_table, ["Index", "x", "y"], tablefmt="fancy_grid" , colalign=("right",)) )
+
+######################################################
+##### [8] Convert integer to Roman numerals
+######################################################
+
+from roman_numerals import convert_to_numeral
+
+print(convert_to_numeral(1000))
+
+
