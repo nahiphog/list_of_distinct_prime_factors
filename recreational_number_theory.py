@@ -104,6 +104,5 @@ print(f"\nThe first {desired_solutions} solutions to the Pell's equation [ x^2 -
 
 
 
-print(convert_to_numeral(1000))
 
 
