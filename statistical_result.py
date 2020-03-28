@@ -12,19 +12,18 @@ total_number_of_trials = 10
 
 # Compute confidence interval
 confidence_level = 0.99
-def mean_confidence_interval(data, confidence):
-    a = 1.0 * numpy.array(data)
-    n = len(a)
+def mean_confidence_interval(data, confidence, runs):
+    a = numpy.array(data)
     m, se = numpy.mean(a), scipy.stats.sem(a)
-    h = se * scipy.stats.t.ppf((1 + confidence) / 2., n-1)
-    return [m-h, m+h]
-evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level)
+    h = se * scipy.stats.t.ppf((1 + confidence) / 2., runs-1)
+    return [m, m-h, m+h]
+evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level, total_number_of_trials)
 
 final_report = [ 
-["Mean",statistics.mean(results_drawn)], ["Median",statistics.median(results_drawn)], ["Mode",statistics.mode(results_drawn)], 
+["Mean",evaluate_c_i[0] ], ["Median",statistics.median(results_drawn)], ["Mode",statistics.mode(results_drawn)], 
 ["Sample variance",statistics.variance(results_drawn)], 
 ["Skewness",scipy.stats.skew(results_drawn)], ["Kurtosis" , scipy.stats.kurtosis(results_drawn)],
-[f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[0] } ≤ Mean ≤ {evaluate_c_i[1] }"] ]
+[f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[1] } ≤ Mean ≤ {evaluate_c_i[2] }"] ]
 
 # Print the table of the statistical result
 print(f"\n\t\t Monte Carlo simulation for {total_number_of_trials:,} trials\n" +
