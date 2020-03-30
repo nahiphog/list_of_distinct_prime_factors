@@ -29,6 +29,22 @@ final_report = [
 print(f"\n\t\t Monte Carlo simulation for {total_number_of_trials:,} trials\n" +
 tabulate(final_report,["Statistical measure", "Output"], tablefmt="fancy_grid" , colalign=("right",)))
 
+####################################################################################
+######### Accompany this table with a table with relative frequency with cut-off ###
+####################################################################################
+
+cut_off_point_in_percentage = 2
+frequency_counter = []
+for integer in range( min(results_drawn), max(results_drawn) + 1):
+    relative_frequency = results_drawn.count(integer) /total_number_of_trials * 100 
+    if relative_frequency > cut_off_point_in_percentage:
+        frequency_counter.append( [integer, relative_frequency ])
+
+
+print(f"\nMonte Carlo simulation for {total_number_of_trials:,} trials" , 
+f"\n(only show percentages above {cut_off_point_in_percentage}%)\n" +
+tabulate(frequency_counter,["Rerolls", "Relative frequency (%)"], tablefmt="fancy_grid" , numalign="center"))
+
 ############################################################
 ######### Accompany this table with a histogram ############
 ############################################################
