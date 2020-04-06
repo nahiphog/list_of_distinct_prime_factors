@@ -2,7 +2,7 @@ from itertools import permutations
 from tqdm import tqdm
 from tabulate import tabulate
 
-# INPUT WORD EQUATION HERE
+# INPUT WORD EQUATION HERE, THE SYMBOLS '+' AND '=' ARE NOT MANDATORY
 input_text_here = ' KYOTO + oSAKA = TOKYO '
 text = input_text_here.strip().split()
 for element in text:
