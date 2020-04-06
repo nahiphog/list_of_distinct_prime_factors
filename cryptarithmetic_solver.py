@@ -1,8 +1,14 @@
 from itertools import permutations
 from tqdm import tqdm
+from tabulate import tabulate
 
 # INPUT WORD EQUATION HERE
-equation_formed = ["KYOTO", "OSAKA","TOKYO" ]
+input_text_here = ' KYOTO + oSAKA = TOKYO '
+text = input_text_here.strip().split()
+for element in text:
+    if not( element.isalpha() ):
+        text.remove(element)
+equation_formed = [ element.upper() for element in text ]
 
 all_alphabets_used = []
 for element in equation_formed:
@@ -12,6 +18,15 @@ for element in equation_formed:
             all_alphabets_used.append(item)
 
 single_digits = [ integer for integer in range(10)]
+
+word_string = ''
+for item in equation_formed[:-1]:
+    word_string += item
+    word_string += " + "
+
+word_string = word_string[:-2]
+word_string += '= ' + equation_formed[-1]
+print(f"The input is:\t {word_string}\n")
 
 continue_experiment = True
 if len(all_alphabets_used) > 10:
@@ -43,23 +58,14 @@ if continue_experiment == True:
             if sum(numbers_formed) == 2 * numbers_formed[-1]:
                 numerical_outputs.append([numbers_formed, pairing_values])
                 solution_found += 1
-       
+
 # Display results
 print(f"Solutions found:\t {len(numerical_outputs)}\n")
 solution_number = 0
 for element in numerical_outputs:
     solution_number += 1
     print(f"Solution [{solution_number}]")
-    print("---------------------------")
-
-    word_string = ''
-    for item in equation_formed[:-1]:
-        word_string += item
-        word_string += " + "
-
-    word_string = word_string[:-2]
-    word_string += '= ' + equation_formed[-1]
-    print(word_string)
+    print("---------------------------\n")
 
     number_string = ''
     for item in element[0][:-1]:
@@ -69,4 +75,7 @@ for element in numerical_outputs:
     number_string += '= ' + str(element[0][-1])
     print(number_string)
 
-    print(f"Paired values: {element[1]}\n")
+    used_alphabets = [ element[1][i][0] for i in range(len(element[1])) ]
+    used_values = [ element[1][i][1] for i in range(len(element[1])) ]
+    table_of_alphabet_values = [ used_alphabets, used_values]
+    print("Paired values:\n" + tabulate(table_of_alphabet_values, tablefmt="grid") + "\n")
