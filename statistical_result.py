@@ -66,7 +66,7 @@ frequency_count = [ results_drawn.count(element) * 100 / total_number_of_trials 
 plt.bar(all_different_results ,frequency_count,align='center') # A bar chart
 plt.xlabel('X-AXIS')
 plt.ylabel('Relative frequency (%)')
-plt.title(f"Monte carlo simulation with {(total_number_of_trials)} runs")
+plt.title(f"Monte carlo simulation with {total_number_of_trials:,} runs")
 
 draw_horizontal_lines = False
 if draw_horizontal_lines == True:
