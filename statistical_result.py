@@ -61,7 +61,7 @@ plt.show()
 ####################################################################################
 
 all_different_results = list( dict.fromkeys(results_drawn) )
-frequency_count = [ results_drawn.count(element) * 100 / len(final_result) for element in all_different_results ]
+frequency_count = [ results_drawn.count(element) * 100 / total_number_of_trials for element in all_different_results ]
 
 plt.bar(all_different_results ,frequency_count,align='center') # A bar chart
 plt.xlabel('X-AXIS')
