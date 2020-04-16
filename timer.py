@@ -22,3 +22,9 @@ from time import time
 start_time = time()
 
 print(f"Elapsed time: \t { format_timespan( time() - start_time) }" )
+
+######################################################
+###### [3] Show current date and time
+######################################################
+from time import time, ctime
+print( ctime(time()) )
