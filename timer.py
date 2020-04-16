@@ -27,4 +27,4 @@ print(f"Elapsed time: \t { format_timespan( time() - start_time) }" )
 ###### [3] Show current date and time
 ######################################################
 from time import time, ctime
-print( ctime(time()) )
+print( ctime(time()) ) #Output: Fri Apr 17 05:36:03 2020
