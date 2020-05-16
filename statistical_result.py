@@ -20,7 +20,8 @@ def mean_confidence_interval(data, confidence, runs):
 evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level, total_number_of_trials)
 
 final_report = [ 
-["Mean",evaluate_c_i[0] ], ["Median",statistics.median(results_drawn)], ["Mode",statistics.mode(results_drawn)], 
+["Mean", evaluate_c_i[0] ], ["Median",statistics.median(results_drawn)], ["Mode",statistics.mode(results_drawn)], 
+["Interquartile range", scipy.iqr(results_drawn, interpolation='midpoint')],    
 ["Sample variance",statistics.variance(results_drawn)], 
 ["Skewness",scipy.stats.skew(results_drawn)], ["Kurtosis" , scipy.stats.kurtosis(results_drawn)],
 [f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[1] } ≤ Mean ≤ {evaluate_c_i[2] }"] ]
