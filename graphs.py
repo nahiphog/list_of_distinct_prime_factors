@@ -31,7 +31,7 @@ plt.axis([0, 20, 0, 110])
 # Plot all the relevant graphs with colors, labels, and linewidth
 # With dash lines: 'r--'
 # With points: 'ro'
-plt.plot(die, AoDtoPlot, color = 'r', label = 'AoD', linewidth = 3) # With dashed lines: ’r--’
+plt.plot(die, AoDtoPlot, color = 'r', label = 'AoD', linewidth = 3) 
 plt.plot(die, DoAtoPlot, color = 'g', label = 'DoA', linewidth = 3)
 plt.plot(die, singletoPlot, color = 'b', label = 'singles', linewidth = 3)
 
