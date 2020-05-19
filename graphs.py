@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
   
 ################ Some fake data
 
+import itertools as it
 die = range(1, 21)
 AoDRolls = [max(min(roll[0], roll[1]), min(roll[2], roll[3])) for roll in it.product(die, repeat=4)]
 DoARolls = [min(max(roll[0], roll[1]), max(roll[2], roll[3])) for roll in it.product(die, repeat=4)]
