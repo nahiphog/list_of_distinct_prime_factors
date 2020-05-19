@@ -36,7 +36,7 @@ plt.plot(die, DoAtoPlot, color = 'g', label = 'DoA', linewidth = 3)
 plt.plot(die, singletoPlot, color = 'b', label = 'singles', linewidth = 3)
 
 # Any grid?
-plt.grid(axis="x") # Options: x, y, both
+plt.grid("x") # Options: x, y, Both
 
 # Label which x-axis coordinates?
 plt.xticks(die)
