@@ -94,5 +94,8 @@ while time() < terminate_experiment:
 print(len(results_drawn))
 
 
+############################
+
+plt.savefig('graph.png')
 
 
