@@ -57,6 +57,13 @@ plt.savefig('graph.png')
 # Insert text in graph (In position X, position Y, and the actual text)
 plt.text(10, 30, r'$\mu=100,\ \sigma=15$')
 
+# Insert an arrow with attached text at the end of it
+plt.annotate('local max', 
+            xy=(10, 10), 
+            xytext=(5, 50),
+             arrowprops=dict(facecolor='black', shrink=0.05),
+             )
+
 # Show graph
 plt.show()
 
