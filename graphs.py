@@ -74,11 +74,11 @@ plt.show()
 names = ['group_a', 'group_b', 'group_c']
 values = [1, 10, 100]
 plt.figure(figsize=(9, 3))
-plt.subplot(131) # DIMENSIONS 1x3 ==> 1st from the left
+plt.subplot(131) # DIMENSIONS 1x3 ==> 1st graph to be generated
 plt.bar(names, values) # BAR GRAPH
-plt.subplot(133) # DIMENSIONS 1x3 ==> 2nd from the left
+plt.subplot(133) # DIMENSIONS 1x3 ==> 2nd graph to be generated
 plt.scatter(names, values) # SCATTER GRAPH
-plt.subplot(132)# DIMENSIONS 1x3 ==> 3rd from the left
+plt.subplot(132)# DIMENSIONS 1x3 ==> 3rd graph to be generated 
 plt.plot(names, values) # LINE GRAPH
 plt.suptitle('Categorical Plotting')
 plt.show()
