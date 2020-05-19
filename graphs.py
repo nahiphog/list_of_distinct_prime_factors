@@ -44,6 +44,9 @@ plt.xticks(die)
 # Label which y-axis coordinates?
 plt.yticks([0, 10, 33, 100])
 
+# Y-axis adjustments? LINEAR by default, {"linear", "log", "symlog", "logit", ...}
+plt.yscale('linear')
+
 # Label the X-axis and Y-axis
 plt.xlabel("$N$")
 plt.ylabel("Probability of rolling $\geqslant N$ (in %)")
