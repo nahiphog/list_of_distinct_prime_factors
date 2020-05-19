@@ -29,7 +29,9 @@ figure = plt.figure(figsize=(10,6))
 plt.axis([0, 20, 0, 110]) 
 
 # Plot all the relevant graphs with colors, labels, and linewidth
-plt.plot(die, AoDtoPlot, color = 'r', label = 'AoD', linewidth = 3)
+# With dash lines: 'r--'
+# With points: 'ro'
+plt.plot(die, AoDtoPlot, color = 'r', label = 'AoD', linewidth = 3) # With dashed lines: ’r--’
 plt.plot(die, DoAtoPlot, color = 'g', label = 'DoA', linewidth = 3)
 plt.plot(die, singletoPlot, color = 'b', label = 'singles', linewidth = 3)
 
@@ -52,4 +54,24 @@ plt.legend()
 # Save figure in your local directory
 plt.savefig('graph.png')
 
+# Insert text in graph (In position X, position Y, and the actual text)
+plt.text(10, 30, r'$\mu=100,\ \sigma=15$')
+
 # Show graph
+plt.show()
+
+#################### 
+
+# MANY GRAPHS
+
+names = ['group_a', 'group_b', 'group_c']
+values = [1, 10, 100]
+plt.figure(figsize=(9, 3))
+plt.subplot(131) # DIMENSIONS 1x3 ==> 1st from the left
+plt.bar(names, values) # BAR GRAPH
+plt.subplot(133) # DIMENSIONS 1x3 ==> 2nd from the left
+plt.scatter(names, values) # SCATTER GRAPH
+plt.subplot(132)# DIMENSIONS 1x3 ==> 3rd from the left
+plt.plot(names, values) # LINE GRAPH
+plt.suptitle('Categorical Plotting')
+plt.show()
