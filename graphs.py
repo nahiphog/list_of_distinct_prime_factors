@@ -62,7 +62,7 @@ plt.savefig('graph.png')
 plt.text(10, 30, r'$\mu=100,\ \sigma=15$')
 
 # Insert an arrow with attached text at the end of it
-plt.annotate('local max', 
+plt.annotate('SOME RANDOM TEXT!', 
             xy=(10, 10), 
             xytext=(5, 50),
              arrowprops=dict(facecolor='black', shrink=0.05),
