@@ -86,3 +86,26 @@ plt.subplot(132)# DIMENSIONS 1x3 ==> 3rd graph to be generated
 plt.plot(names, values) # LINE GRAPH
 plt.suptitle('Categorical Plotting')
 plt.show()
+
+
+################################################################################
+############### PIE CHART
+################################################################################
+
+import matplotlib.pyplot as plt
+from random import randint
+
+results_drawn = [ randint(1,14) for _ in range(int(1e3)) ]
+
+# Data to plot
+labelzzz = '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'
+sizes = [results_drawn.count(integer) for integer in range(1, 14 + 1)]
+# colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+# explode = (0.1, 0, 0, 0)  # explode 1st slice
+
+# Plot
+plt.pie(sizes, labels=labelzzz,
+autopct='%1.1f%%', shadow=False, startangle=140)
+
+plt.axis('equal')
+plt.show()
