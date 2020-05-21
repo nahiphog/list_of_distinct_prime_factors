@@ -21,7 +21,7 @@ evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level, total_n
 
 final_report = [ 
 ["Mean", evaluate_c_i[0] ], ["Median",statistics.median(results_drawn)], ["Mode",statistics.mode(results_drawn)], 
-["Interquartile range", scipy.stats.iqr(results_drawn, interpolation='midpoint')],    
+["Interquartile range", scipy.stats.iqr(results_drawn, interpolation='midpoint')], # {‘linear’, ‘lower’, ‘higher’, ‘midpoint’, ‘nearest’}   
 ["Sample variance",statistics.variance(results_drawn)], # PICK ONE OF THESE
 ["Population variance",statistics.pvariance(results_drawn)], # PICK ONE OF THESE
 ["Skewness",scipy.stats.skew(results_drawn)], ["Kurtosis" , scipy.stats.kurtosis(results_drawn)] ],
