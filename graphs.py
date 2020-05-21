@@ -32,9 +32,9 @@ plt.axis([0, 20, 0, 110])
 # Plot all the relevant graphs with colors, labels, and linewidth
 # With dash lines: 'r--'
 # With points: 'ro'
-plt.plot(die, AoDtoPlot, color = 'r', label = 'AoD', linewidth = 3) 
-plt.plot(die, DoAtoPlot, color = 'g', label = 'DoA', linewidth = 3)
-plt.plot(die, singletoPlot, color = 'b', label = 'singles', linewidth = 3)
+plt.plot(die, AoDtoPlot, color = 'r', label = 'AoD', linewidth = 3,  zorder=3) 
+plt.plot(die, DoAtoPlot, color = 'g', label = 'DoA', linewidth = 3,  zorder=2.5)
+plt.plot(die, singletoPlot, color = 'b', label = 'singles', linewidth = 3,  zorder=2)
 
 # Any grid?
 plt.grid("x") # Options: x, y, Both
@@ -59,7 +59,10 @@ plt.legend()
 plt.savefig('graph.png')
 
 # Insert text in graph (In position X, position Y, and the actual text)
-plt.text(10, 30, r'$\mu=100,\ \sigma=15$')
+plt.text(10, 30, r'$\mu=100,\ \sigma=15$', rotation=45,
+         horizontalalignment='center',
+         verticalalignment='top',
+         multialignment='center')
 
 # Insert an arrow with attached text at the end of it
 plt.annotate('SOME RANDOM TEXT!', 
@@ -72,7 +75,7 @@ plt.annotate('SOME RANDOM TEXT!',
 plt.axvline(x=0, ymin=0.75, linewidth=8, color='#1f77b4')
 
 # Draw a default hline at y=.5 that spans the middle half of the axes
-plt.axhline(y=.5, xmin=0.25, xmax=0.75)
+plt.axhline(y=.5, xmin=0.25, xmax=0.75, linestyle ="--") # "--", ":", "--"
 plt.axhline(y=.5, xmin=0.25, xmax=0.75)
 
 plt.axhspan(0.25, 0.75, facecolor='0.5', alpha=0.5)
