@@ -53,7 +53,7 @@ plt.xlabel("$N$")
 plt.ylabel("Probability of rolling $\geqslant N$ (in %)")
 
 # Show legend
-plt.legend()
+plt.legend(loc ='upper right')
 
 # Save figure in your local directory
 plt.savefig('graph.png')
