@@ -19,7 +19,9 @@ def mean_confidence_interval(data, confidence, runs):
     return [m, m-h, m+h]
 evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level, total_number_of_trials)
 
-final_report = [ 
+final_report = [
+# 0. Minimum and Maximum value
+["(Minimum sample, Maximum sample)", (min(results_drawn),max(results_drawn)) ],
 # 1. Mean
 ["Mean", evaluate_c_i[0] ], 
 # 2. Percentiles
