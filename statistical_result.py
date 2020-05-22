@@ -4,11 +4,8 @@ import scipy.stats # To calculate skewness and kurtosis
 from tabulate import tabulate
 import matplotlib.pyplot as plt
 
-# Name of list for the record drawn from Monte Carlo simulation
-results_drawn = []
-
-# Change this value
-total_number_of_trials = 10 
+# Name of list for the record drawn from Monte Carlo simulation? And how many trials?
+results_drawn = [] ; total_number_of_trials = 10 
 
 # Compute confidence interval
 confidence_level = 0.99
