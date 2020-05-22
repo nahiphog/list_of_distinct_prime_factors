@@ -20,7 +20,8 @@ def mean_confidence_interval(data, confidence, runs):
 evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level, total_number_of_trials)
 
 final_report = [ 
-["Mean", evaluate_c_i[0] ], ["Median",statistics.median(results_drawn)], 
+["Mean", evaluate_c_i[0] ], ["Median",statistics.median(results_drawn)],
+[" Quantiles, statistics.quantiles(results_drawn, n=4, method='inclusive') ], # Optional
 ["Mode",statistics.mode(results_drawn)], # PICK ONE OF THESE
 ["Modes",statistics.multimode(results_drawn)], # PICK ONE OF THESE
 ["Interquartile range", scipy.stats.iqr(results_drawn, interpolation='midpoint')], # {‘linear’, ‘lower’, ‘higher’, ‘midpoint’, ‘nearest’}   
