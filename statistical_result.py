@@ -20,19 +20,30 @@ def mean_confidence_interval(data, confidence, runs):
 evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level, total_number_of_trials)
 
 final_report = [ 
-["Mean", evaluate_c_i[0] ], ["Median",statistics.median(results_drawn)],
-[" Quantiles, statistics.quantiles(results_drawn, n=4, method='inclusive') ], # Optional
+# 1. Mean
+["Mean", evaluate_c_i[0] ], 
+# 2. Percentiles
+["Median",statistics.median(results_drawn)],
+["Quantiles", statistics.quantiles(results_drawn, n=4, method='inclusive') ], # Optional
+["Interquartile range", scipy.stats.iqr(results_drawn, interpolation='midpoint')], # {‘linear’, ‘lower’, ‘higher’, ‘midpoint’, ‘nearest’}   
+# 3. Modes
 ["Mode",statistics.mode(results_drawn)], # PICK ONE OF THESE
 ["Modes",statistics.multimode(results_drawn)], # PICK ONE OF THESE
-["Interquartile range", scipy.stats.iqr(results_drawn, interpolation='midpoint')], # {‘linear’, ‘lower’, ‘higher’, ‘midpoint’, ‘nearest’}   
+# 4. Measure of dispersion
 ["Sample variance",statistics.variance(results_drawn)], # PICK ONE OF THESE
 ["Population variance",statistics.pvariance(results_drawn)], # PICK ONE OF THESE
+["Sample standard deviation",statistics.stdev(results_drawn)], # PICK ONE OF THESE
+["Population standard deviation",statistics.pstdev(results_drawn)], # PICK ONE OF THESE
+# 5. Distortion of symmetry
 ["Skewness",scipy.stats.skew(results_drawn)], ["Kurtosis" , scipy.stats.kurtosis(results_drawn)] ],
+# 6. Confidence interval
 [f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[1] } ≤ Mean ≤ {evaluate_c_i[2] }"] ]
 
+
 # Print the table of the statistical result
+header_of_table = ["Statistical measure", "Output"]
 print(f"\n\t\t Monte Carlo simulation for {total_number_of_trials:,} trials\n" +
-tabulate(final_report,["Statistical measure", "Output"], tablefmt="fancy_grid" , colalign=("right",)))
+tabulate(final_report,header_of_table, tablefmt="fancy_grid" , colalign=("right",)))
 
 ####################################################################################
 ######### Accompany this table with a table with relative frequency with cut-off ###
