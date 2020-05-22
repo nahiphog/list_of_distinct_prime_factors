@@ -24,7 +24,7 @@ final_report = [
 ["Mean", evaluate_c_i[0] ], 
 # 2. Percentiles
 ["Median",statistics.median(results_drawn)],
-["Quantiles", statistics.quantiles(results_drawn, n=4, method='inclusive') ], # Optional
+["Percentiles", statistics.quantiles(results_drawn, n=4, method='inclusive') ], # Optional
 ["Interquartile range", scipy.stats.iqr(results_drawn, interpolation='midpoint')], # {‘linear’, ‘lower’, ‘higher’, ‘midpoint’, ‘nearest’}   
 # 3. Modes
 ["Mode",statistics.mode(results_drawn)], # PICK ONE OF THESE
