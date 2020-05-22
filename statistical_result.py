@@ -19,9 +19,9 @@ def mean_confidence_interval(data, confidence, runs):
     return [m, m-h, m+h]
 evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level, total_number_of_trials)
 
-final_report = [
+final_report = [ 
 # 0. Minimum and Maximum value
-["(Minimum sample, Maximum sample)", (min(results_drawn),max(results_drawn)) ],
+["(MIN, MAX)", (min(results_drawn),max(results_drawn)) ],
 # 1. Mean
 ["Mean", evaluate_c_i[0] ], 
 # 2. Percentiles
@@ -37,7 +37,7 @@ final_report = [
 ["Sample standard deviation",statistics.stdev(results_drawn)], # PICK ONE OF THESE
 ["Population standard deviation",statistics.pstdev(results_drawn)], # PICK ONE OF THESE
 # 5. Distortion of symmetry
-["Skewness",scipy.stats.skew(results_drawn)], ["Kurtosis" , scipy.stats.kurtosis(results_drawn)] ],
+["Skewness",scipy.stats.skew(results_drawn)], ["Kurtosis" , scipy.stats.kurtosis(results_drawn)] ,
 # 6. Confidence interval
 [f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[1] } ≤ Mean ≤ {evaluate_c_i[2] }"] ]
 
