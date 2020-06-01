@@ -37,6 +37,7 @@ plt.plot(die, DoAtoPlot, color = 'g', label = 'DoA', linewidth = 3,  zorder=2.5)
 plt.plot(die, singletoPlot, color = 'b', label = 'singles', linewidth = 3,  zorder=2)
 
 # Any grid?
+# which = "major" / "minor"
 plt.grid("x") # Options: x, y, Both
 
 # Label which x-axis coordinates?
