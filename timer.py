@@ -17,8 +17,7 @@ print(f"Elapsed time: \t { time() - start_time }" )
 ######################################################
 ###### [2B] In proper time unit, especially when it can run for over a minute
 ######################################################
-from humanfriendly import format_timespan
-from time import time
+from humanfriendly import format_timespan ; from time import time # Record the total elapsed time of this experiment
 start_time = time()
 
 print(f"Elapsed time: \t { format_timespan( time() - start_time) }" )
