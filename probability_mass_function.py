@@ -1,26 +1,26 @@
 from fractions import Fraction as ff
 from math import sqrt
 
-def verify_valid_dpdf(dpdf):
+def verify_valid_pms(pms):
     '''
     We want to make sure the input discrete probability density function (D PDF) is valid.
     It must satisfy (Sum = 1) and all of them are non-negative.
     '''
-    sum_of_probabilities = sum( item[1] for item in dpdf)
+    sum_of_probabilities = sum( item[1] for item in pms)
 
     if not(sum_of_probabilities == 1): return False
     else: 
-        if not(min( item[1] for item in dpdf) >= 0): return False
+        if not(min( item[1] for item in pms) >= 0): return False
         else: return True
 
-def raw_moment(dpdf, k):
+def raw_moment(pms, k):
     '''
     We want to compute the mathematical expectation, E[X^k] = sum_(domain) ( value^k * Pr[value] )
     '''
-    return sum( ( item[0] ** k) * item[1] for item in dpdf )
+    return sum( ( item[0] ** k) * item[1] for item in pms )
 
 
-def factorial_moment(dpdf, k):
+def factorial_moment(pms, k):
     '''
     We want to compute the mathematical expectation, E[ X(X-1)(X-2) ... (X-k + 1)] 
     = sum_(domain) ( value(value-1)(value-2) ... (value-k + 1) * Pr[value] )
@@ -29,58 +29,58 @@ def factorial_moment(dpdf, k):
         if k == 0: return 1
         else: return n * falling(n-1,k-1)
     
-    return sum( falling(item[0] , k) * item[1] for item in dpdf )
+    return sum( falling(item[0] , k) * item[1] for item in pms )
 
 
-def population_variance(dpdf):
+def population_variance(pms):
     '''
     Var[X] = E[X^2] - ( E[X] )^2
     '''
-    second_raw_moment = raw_moment(dpdf, 2)
-    first_raw_moment = raw_moment(dpdf, 1)
+    second_raw_moment = raw_moment(pms, 2)
+    first_raw_moment = raw_moment(pms, 1)
 
     return second_raw_moment - (first_raw_moment ** 2)
 
-def absolute_moment(dpdf, k, a):
+def absolute_moment(pms, k, a):
     '''
     We want to compute the mathematical expectation, E[ |X - a|^k ] = sum_(domain) ( |value - a|^k * Pr[value] )
     '''
-    return sum( ( abs(item[0] - a) ** k) * item[1] for item in dpdf )
+    return sum( ( abs(item[0] - a) ** k) * item[1] for item in pms )
 
-def central_moment(dpdf, k):
+def central_moment(pms, k):
     '''
     We want to compute the mathematical expectation, E[  (X - E[X])^k ] = sum_(domain) (  (X - E[X])^k * Pr[value] )
     '''
-    this_mean = raw_moment(dpdf, 1)
+    this_mean = raw_moment(pms, 1)
 
-    return sum( ((item[0] - this_mean) ** k) * item[1] for item in dpdf )
+    return sum( ((item[0] - this_mean) ** k) * item[1] for item in pms )
 
 
-def skewness_value(dpdf):
+def skewness_value(pms):
     '''
     Skewness = E[(X - mu)^3] / ( E[(X-mu)^2] )^(3/2)
     '''
 
-    this_numerator = central_moment(dpdf, 3)
-    this_denominator = (population_variance(dpdf)) ** (3/2)
+    this_numerator = central_moment(pms, 3)
+    this_denominator = (population_variance(pms)) ** (3/2)
 
     return this_numerator / this_denominator
 
-def kurtosis_value(dpdf):
+def kurtosis_value(pms):
     '''
     Kurtosis = E[(X - mu)^4] / ( E[(X-mu)^2] )^2
     '''
 
-    this_numerator = central_moment(dpdf, 4)
-    this_denominator = (population_variance(dpdf)) ** 2
+    this_numerator = central_moment(pms, 4)
+    this_denominator = (population_variance(pms)) ** 2
 
     return this_numerator / this_denominator
 
-def coefficient_of_variation(dpdf):
+def coefficient_of_variation(pms):
     '''
     Compute standard deviation / mean
     '''
-    return sqrt(population_variance(dpdf)) / raw_moment(dpdf, 1)
+    return sqrt(population_variance(pms)) / raw_moment(pms, 1)
 
 six_pdf = [
     [2, ff(2048,2 ** 17)],
@@ -103,14 +103,16 @@ six_pdf = [
     [19, ff(1,2 ** 17)]
     ]
 
-def print_results(dpdf):
 
-    if verify_valid_dpdf(dpdf) == False:
+
+def print_results(pms):
+
+    if verify_valid_pms(pms) == False:
         print("This is not a valid discrete probability distribution function.")
 
     else:
-        this_mean = expectation1(dpdf)
-        this_variance = variance_compute(dpdf)
+        this_mean = expectation1(pms)
+        this_variance = variance_compute(pms)
     
         print(f"Mean:\t{this_mean} = {this_mean.numerator / this_mean.denominator} ")
         print(f"Population variance:\t{this_variance} = {this_variance.numerator / this_variance.denominator}")
