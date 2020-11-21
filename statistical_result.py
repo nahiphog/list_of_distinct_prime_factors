@@ -17,27 +17,38 @@ def mean_confidence_interval(data, confidence, runs):
 evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level, total_number_of_trials)
 
 final_report = [ 
-# 0. Minimum and Maximum value
-["(MIN, MAX)", (min(results_drawn),max(results_drawn)) ],
-# 1. Mean
-["Mean", evaluate_c_i[0] ], 
-# 2. Percentiles
-["Median",statistics.median(results_drawn)],
-["Percentiles", statistics.quantiles(results_drawn, n=4, method='inclusive') ], # Optional
-["Interquartile range", scipy.stats.iqr(results_drawn, interpolation='midpoint')], # {‘linear’, ‘lower’, ‘higher’, ‘midpoint’, ‘nearest’}   
-# 3. Modes
-["Mode",statistics.mode(results_drawn)], # PICK ONE OF THESE
-["Modes",statistics.multimode(results_drawn)], # PICK ONE OF THESE
-# 4. Measure of dispersion
-["Sample variance",statistics.variance(results_drawn)], # PICK ONE OF THESE
-["Population variance",statistics.pvariance(results_drawn)], # PICK ONE OF THESE
-["Sample standard deviation",statistics.stdev(results_drawn)], # PICK ONE OF THESE
-["Population standard deviation",statistics.pstdev(results_drawn)], # PICK ONE OF THESE
-# 5. Distortion of symmetry
-["Skewness",scipy.stats.skew(results_drawn)], ["Kurtosis" , scipy.stats.kurtosis(results_drawn)] ,
-# 6. Confidence interval
-[f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[1] } ≤ Mean ≤ {evaluate_c_i[2] }"] ]
-
+    # (1) Minimum and Maximum value
+        ["(Minimum, Maximum)", (min(results_drawn),max(results_drawn)) ],
+    # (2) Measures of central tendencies
+        # (2A) Mean
+            ["Mean", evaluate_c_i[0] ], 
+            ["Geometric mean", statistics.geometric_mean(results_drawn)],
+            ["Harmonic mean", statistics.harmonic_mean(results_drawn)], # Make sure there's no data with value 0
+        # (2B) Modes
+            # PICK ONE OF THSE
+            ["Mode",statistics.mode(results_drawn)],
+            ["Modes",statistics.multimode(results_drawn)], 
+        # (2C) Percentiles
+            ["Median",statistics.median(results_drawn)],
+            ["Percentiles", statistics.quantiles(results_drawn, n=4, method='inclusive') ], # inclusive, exclusive
+            ["Interquartile range", scipy.stats.iqr(results_drawn, interpolation='midpoint')], # {‘linear’, ‘lower’, ‘higher’, ‘midpoint’, ‘nearest’}   
+    # (3) Measure of dispersion
+        # (3A) Sample
+            # PICK ONE OF THESE
+            ["Sample variance",statistics.variance(results_drawn)], 
+            ["Sample standard deviation",statistics.stdev(results_drawn)], 
+        # (3B) Population
+            # PICK ONE OF THESE
+            ["Population variance",statistics.pvariance(results_drawn)], 
+            ["Population standard deviation",statistics.pstdev(results_drawn)], 
+    # 4. Distortion of symmetry
+        # (4A) Skewness
+            ["Skewness", scipy.stats.skew(results_drawn)], 
+        # (4B) Kurtosis
+            ["Kurtosis" , scipy.stats.kurtosis(results_drawn)],
+    # 5. Confidence interval
+        [f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[1] } ≤ Mean ≤ {evaluate_c_i[2] }"] 
+        ]
 
 # Print the table of the statistical result
 header_of_table = ["Statistical measure", "Output"]
