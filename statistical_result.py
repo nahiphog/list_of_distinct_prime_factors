@@ -18,7 +18,7 @@ evaluate_c_i = mean_confidence_interval(results_drawn, confidence_level, total_n
 
 final_report = [ 
     # (1) Minimum and Maximum value
-        ["(Minimum, Maximum)", (min(results_drawn),max(results_drawn)) ],
+            ["(Minimum, Maximum)", (min(results_drawn),max(results_drawn)) ],
     # (2) Measures of central tendencies
         # (2A) Mean
             ["Mean", evaluate_c_i[0] ], 
@@ -41,13 +41,13 @@ final_report = [
             # PICK ONE OF THESE
             ["Population variance",statistics.pvariance(results_drawn)], 
             ["Population standard deviation",statistics.pstdev(results_drawn)], 
-    # 4. Distortion of symmetry
+    # (4) Distortion of symmetry
         # (4A) Skewness
             ["Skewness", scipy.stats.skew(results_drawn)], 
         # (4B) Kurtosis
             ["Kurtosis" , scipy.stats.kurtosis(results_drawn)],
-    # 5. Confidence interval
-        [f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[1] } ≤ Mean ≤ {evaluate_c_i[2] }"] 
+    # (5) Confidence interval
+            [f"{confidence_level * 100}% Confidence Interval", f"{evaluate_c_i[1] } ≤ Mean ≤ {evaluate_c_i[2] }"] 
         ]
 
 # Print the table of the statistical result
