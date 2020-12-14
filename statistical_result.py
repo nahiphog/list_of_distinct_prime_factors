@@ -25,7 +25,7 @@ final_report = [
             ["Geometric mean", statistics.geometric_mean(results_drawn)],
             ["Harmonic mean", statistics.harmonic_mean(results_drawn)], # Make sure there's no data with value 0
         # (2B) Modes
-            # PICK ONE OF THSE
+            # PICK ONE OF THESE
             ["Mode",statistics.mode(results_drawn)],
             ["Modes",statistics.multimode(results_drawn)], 
         # (2C) Percentiles
